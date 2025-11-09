@@ -41,7 +41,7 @@
                 fecha_devolucion: document.getElementById('fecha_devolucion').value
             };
 
-            const res = await fetch('http://localhost:3000/loans', {
+            const res = await fetch('https://pidelo.onrender.com/loans', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
                 body: JSON.stringify(data)
@@ -55,7 +55,7 @@
 
      
         async function cargarPrestamos() {
-            const res = await fetch('http://localhost:3000/loans');
+            const res = await fetch('https://pidelo.onrender.com/loans');
             const prestamos = await res.json();
 
             tbody.innerHTML = '';

@@ -1,6 +1,6 @@
 const express = require('express');
 const router = express.Router();
-const loanController = require('../controllers/loansController');
+const loanController = require('../controllers/loanscontroller');
 
 // Crear un préstamo
 router.post('/', loanController.createLoan);
