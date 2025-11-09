@@ -1,0 +1,15 @@
+.titulo{
+    margin: 2px;
+    background: #fae7e7;
+    font-family: "Dancing Script", cursive;
+  font-optical-sizing: auto;
+  font-style: normal;
+   text-align: center;
+ background-image: url(imagen/imgcef.jpeg);
+  background-size: cover;
+  height: 100%;
+  overflow: hidden; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

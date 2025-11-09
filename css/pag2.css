@@ -1,0 +1,16 @@
+                     
+     .contenedor{
+      height: 100vh;
+     }
+.containert{
+      font-size: 45px;
+     text-align: center;
+    background: #fcfafa;
+ background-image: url("../imagen/foto.jpeg");
+  background-size: cover;
+  height: 100%;
+  overflow: hidden; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+}

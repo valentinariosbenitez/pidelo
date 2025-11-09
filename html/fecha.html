@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Préstamo de Libros</title>
+    <link rel="stylesheet" type="text/css" href="../css/fecha.css"> <!-- Enlace al archivo CSS -->
+</head>
+<body style="height: 100vh; margin: 0;">
+    <div class="contenedor"> <!-- Aplica la clase .contenedor aquí -->
+        <div class="containert"> <!-- Aplica la clase .containert aquí -->
+            <h1> Registro de Préstamo de Libros</h1>
+
+            <form id="prestamoForm">
+                <label for="nombre_libro">Nombre del libro:</label><br>
+                <input type="text" id="nombre_libro" name="nombre_libro" required><br><br>
+
+                <label for="fecha_prestamo">Fecha de préstamo:</label><br>
+                <input type="date" id="fecha_prestamo" name="fecha_prestamo" required><br><br>
+
+                <label for="fecha_devolucion">Fecha de devolución:</label><br>
+                <input type="date" id="fecha_devolucion" name="fecha_devolucion" required><br><br>
+
+                <button type="submit">Guardar préstamo</button>
+                <button type="button" onclick="window.location.href='../html/pag2.html'">Volver</button>
+            </form>
+        </div> 
+    </div> 
+
+    <script>
+        const form = document.getElementById('prestamoForm');
+        const tbody = document.querySelector('#tablaPrestamos tbody');
+
+        // Guardar préstamo
+        form.addEventListener('submit', async (e) => {
+            e.preventDefault();
+
+            const data = {
+                user_id : 5,
+                book_id : 3,
+                fecha_devolucion: document.getElementById('fecha_devolucion').value
+            };
+
+            const res = await fetch('http://localhost:3000/loans', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(data)
+            });
+
+            const text = await res.text();
+            alert(text);
+            form.reset();
+            cargarPrestamos();
+        });
+
+     
+        async function cargarPrestamos() {
+            const res = await fetch('http://localhost:3000/loans');
+            const prestamos = await res.json();
+
+            tbody.innerHTML = '';
+            prestamos.forEach(p => {
+                const tr = document.createElement('tr');
+                tr.innerHTML = `
+                    <td>${p.id}</td>
+                    <td>${p.nombre_libro}</td>
+                    <td>${p.fecha_prestamo}</td>
+                    <td>${p.fecha_devolucion}</td>
+                `;
+                tbody.appendChild(tr);
+            });
+        }
+
+        // Cargar los préstamos al inicio
+        cargarPrestamos();
+    </script>
+</body>
+</html>

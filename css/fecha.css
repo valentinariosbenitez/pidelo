@@ -1,0 +1,55 @@
+
+.contenedor {
+    height: 100vh; /* Ocupa toda la ventana */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.containert {
+    font-size: 25px; /* Tamaño de letra más grande */
+    text-align: center;
+    background-image: url("../imagen/foto.jpeg"); /* Fondo con imagen */
+    background-size: cover;
+    background-position: center;
+    color: white; 
+    width: 100%; 
+    padding: 40px;
+    border-radius: 10px;
+    overflow: hidden;
+    box-sizing: border-box;
+}
+
+input[type="text"], input[type="date"] {
+    width: 90%; 
+    padding: 15px;
+    font-size: 20px; 
+    margin: 15px 0; 
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    background-color: #222; 
+    color: white; /* Texto blanco en los campos */
+}
+button {
+    background-color: #5cb85c; 
+    color: white; 
+    padding: 20px 30px; 
+    font-size: 20px;
+    border: none;
+    border-radius: 5px; 
+    cursor: pointer;
+    margin: 15px;
+    transition: background-color 0.3s;
+}
+
+button:hover {
+    background-color: #4cae4c; 
+}
+
+button[type="button"] {
+    background-color: #d9534f; 
+}
+
+button[type="button"]:hover {
+    background-color: #c9302c; 
+}
